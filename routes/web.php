@@ -28,6 +28,24 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/products', function () {
 
 })->name('products.index');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/products/{product}', function () {
+
+    return view('products.index');
+
+})->name('products.show');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/products/{product}/edit', function () {
+
+    return view('products.index');
+
+})->name('products.edit');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/products/{product}/delete', function () {
+
+    return view('products.index');
+
+})->name('products.delete');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/categories', function () {
 
     return view('categories.index');

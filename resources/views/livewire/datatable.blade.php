@@ -32,6 +32,9 @@
                         </div>
                     </th>
                 @endforeach
+                @if($actions)
+                    <th> {{ __('Actions') }}</th>
+                @endif
             </tr>
             </thead>
             <tbody>
@@ -41,6 +44,11 @@
                         @continue(! in_array($property, $columns))
                         <td class="w-1/{{ $this->countColumns }}">{{$value}}</td>
                     @endforeach
+                    @if($actions)
+                        <td class="grid grid-cols-3 gap-20">
+                            @include('includes.actions', ['route' => 'products', 'item' => $item])
+                        </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>

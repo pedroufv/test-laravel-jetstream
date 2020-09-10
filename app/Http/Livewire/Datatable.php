@@ -10,6 +10,11 @@ class Datatable extends Component
     use WithPagination;
 
     /**
+     * @var bool
+     */
+     public $actions = false;
+
+    /**
      * @var array
      */
     public $columns;
@@ -102,7 +107,7 @@ class Datatable extends Component
      */
     public function getCountColumnsProperty()
     {
-        return count($this->columns);
+        return $this->actions ? count($this->columns) + 1 : count($this->columns);
     }
 
     /**

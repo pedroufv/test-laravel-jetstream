@@ -7,7 +7,7 @@
 
     <div>
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            @livewire('datatable', [ 'model' => \App\Models\Product::class, 'columns' => ['id', 'name', 'description', 'price'] ])
+            @livewire('datatable', [ 'model' => \App\Models\Product::class, 'columns' => ['id', 'name', 'description', 'price'], 'actions' => true ])
         </div>
     </div>
 </x-app-layout>
