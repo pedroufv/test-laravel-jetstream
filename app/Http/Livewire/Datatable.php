@@ -45,9 +45,7 @@ class Datatable extends Component
      */
     public function render()
     {
-        $paginator = $this->query()
-                        ->orderBy($this->sortBy, $this->sortDirection)
-                        ->paginate($this->perPage);
+        $paginator = $this->getPaginator();
 
         return view('livewire.datatable', compact('paginator'));
     }
@@ -79,6 +77,16 @@ class Datatable extends Component
         }
 
         return $this->sortBy = $field;
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     */
+    public function getPaginator()
+    {
+        return $this->query()
+            ->orderBy($this->sortBy, $this->sortDirection)
+            ->paginate($this->perPage);
     }
 
     /**
