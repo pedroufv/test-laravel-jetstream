@@ -3,6 +3,9 @@
         <div class="mt-6 text-2xl">
             List
         </div>
+        @if($this->empty)
+            <p>{{ __('No items') }}</p>
+        @else
         <div class="mt-6 text-gray-500">
             <div class="flex">
                 <div class="w-5/6 form-inline">
@@ -32,7 +35,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach ($paginator as $item)
+            @foreach($paginator as $item)
                 <tr>
                     @foreach($item->toArray() as $property => $value)
                         @continue(! in_array($property, $columns))
@@ -52,4 +55,5 @@
             </div>
         </div>
     </div>
+    @endempty
 </div>

@@ -81,6 +81,17 @@ class Datatable extends Component
         return $this->sortBy = $field;
     }
 
+    /**
+     * @return bool
+     */
+    public function getEmptyProperty()
+    {
+        return ! $this->query()->count();
+    }
+
+    /**
+     * @return int
+     */
     public function getCountColumnsProperty()
     {
         return count($this->columns);
