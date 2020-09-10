@@ -40,6 +40,9 @@
                                 <x-jet-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products*')">
                                     Products
                                 </x-jet-nav-link>
+                                <x-jet-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories*')">
+                                    Categories
+                                </x-jet-nav-link>
                             </div>
                         </div>
 
@@ -133,6 +136,9 @@
                         </x-jet-responsive-nav-link>
                         <x-jet-responsive-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products*')">
                             Products
+                        </x-jet-responsive-nav-link>
+                        <x-jet-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories*')">
+                            Categories
                         </x-jet-responsive-nav-link>
                     </div>
 

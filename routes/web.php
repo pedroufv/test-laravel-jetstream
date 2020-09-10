@@ -24,8 +24,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/products', function () {
 
-    $columns = ['id', 'name', 'description', 'price'];
-
-    return view('products.index', compact( 'columns'));
+    return view('products.index');
 
 })->name('products.index');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/categories', function () {
+
+    return view('categories.index');
+
+})->name('categories.index');
