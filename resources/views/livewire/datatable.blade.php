@@ -1,20 +1,20 @@
 <div>
-    <div class="p-6 sm:px-12 bg-white border-b border-gray-200">
-        <div class="mt-8 text-2xl">
+    <div class="p-4 sm:px-12 bg-white border-b border-gray-200">
+        <div class="mt-6 text-2xl">
             List
         </div>
         <div class="mt-6 text-gray-500">
-            <div class="grid-rows-1">
-                <div class="col form-inline">
-                    <label for="per-page">Per Page:</label>
-                    <select wire:model="perPage" id="per-page" class="form-control" wire:add.attr="disabled">
+            <div class="flex">
+                <div class="w-5/6 form-inline">
+                    <label for="per-page">{{ __('Per Page') }}:</label>
+                    <select wire:model="perPage" id="per-page" class="bg-gray-100">
                         <option>10</option>
                         <option>15</option>
                         <option>25</option>
                     </select>
                 </div>
-                <div class="col">
-                    <input wire:model.debounce.300ms="search" class="form-control" type="text" placeholder="Search Products...">
+                <div class="w-1/6">
+                    <input wire:model.debounce.300ms="search" class="py-1 px-2 bg-gray-100" type="text" placeholder="{{ __('Search...') }}">
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <tr>
                 @foreach($columns as $column)
                     <th class="cursor-pointer py-4 px-2" wire:click="sortBy('{{ $column }}')">
-                        @lang($column)
+                        {{ __($column) }}
                         <div class="w-2 float-right">
                         @include('includes.sort-icon', ['field' => $column])
                         </div>
